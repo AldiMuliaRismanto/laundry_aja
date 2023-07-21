@@ -13,7 +13,14 @@ return new class extends Migration
     {
         Schema::create('transaksis', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->foreignId('user_id');
+            $table->timestamp('tgl_masuk');
+            $table->timestamp('tgl_selesai');
+            $table->foreignId('layanan_id');
+            $table->enum('status', ['M', 'P', 'S']);
+            $table->integer('jml_barang');
+            $table->integer('total');
+            $table->timestamp('tgl_diambil');
         });
     }
 
