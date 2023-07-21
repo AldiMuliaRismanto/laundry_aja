@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('layanans', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->foreignId('id_jenis');
+            $table->string('nama_layanan');
+            $table->decimal('harga');
         });
     }
 
