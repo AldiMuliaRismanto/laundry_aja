@@ -26,20 +26,23 @@
           </li>
         <li class="nav-header">Data </li>
       <li class="nav-item">
-        <a href="#" class="nav-link">
-          <i class=""></i>
+        <a href="/Karyawan" class="nav-link">
+          <i class="fas fa-user nav-icon"></i>
           <p>
             Data Karyawan
-            <i class="right fas fa-angle-left"></i>
           </p>
         </a>
-        <ul class="nav nav-treeview">
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="fas fa-user nav-icon"></i>
-              <p>Data Kasir</p>
-            </a>
-          </li>
+      </li>
+
+      <li class="nav-item">
+        <a href="" class="nav-link">
+          <i class="fas fa-user nav-icon"></i>
+          <p>
+            Data Customer
+          </p>
+        </a>
+      </li>
+        
     </ul>
   </nav>
   <!-- /.sidebar-menu -->
