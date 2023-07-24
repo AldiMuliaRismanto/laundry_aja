@@ -17,9 +17,10 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', [HomeController::class, 'index'] );
 
-Route::controller(UserController::class)->name('Kasir.')->group(function () {
+Route::controller(UserController::class)->name('Karyawan.')->group(function () {
     Route::get('/Karyawan', 'getKaryawan')->name('getKaryawan');
     Route::get('/Karyawan/tambahKaryawan', 'tambahKaryawan')->name('tambahkKaryawan');
+    Route::post('/Karyawan/addKaryawan', 'addKaryawan')->name('addKaryawan');
 
 });
 
