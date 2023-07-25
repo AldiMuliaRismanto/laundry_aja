@@ -24,6 +24,9 @@ Route::controller(UserController::class)->name('Karyawan.')->group(function () {
     Route::get('/Karyawan', 'getKaryawan')->name('getKaryawan');
     Route::get('/Karyawan/tambahKaryawan', 'tambahKaryawan')->name('tambahkKaryawan');
     Route::post('/Karyawan/addKaryawan', 'addKaryawan')->name('addKaryawan');
+    Route::delete('/Karyawan/deleteKaryawan/{user}', 'deleteKaryawan')->name('deleteKaryawan');
+    Route::get('/Karyawan/editKaryawan/{user}', 'editKaryawan')->name('editKaryawan');
+    Route::patch('/Karyawan/updateKaryawan/{user}', 'updateKaryawan')->name('updateKaryawan');
 
 });
 

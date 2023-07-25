@@ -17,7 +17,8 @@
 
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.css" />
 
-  <link rel="stylesheet" href="sweetalert2.min.css">
+  
+
 </head>
 <body class="hold-transition sidebar-mini">
 <!-- Site wrapper -->
@@ -141,6 +142,8 @@
 
 <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+@include('sweetalert::alert')
 
 @yield('script')
 
