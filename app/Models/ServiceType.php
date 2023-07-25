@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class ServiceType extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name_service_type',
+        'category',
+        'duration',
+    ];
 }

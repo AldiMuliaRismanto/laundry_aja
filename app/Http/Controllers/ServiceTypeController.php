@@ -8,12 +8,11 @@ use App\Http\Requests\UpdateServiceTypeRequest;
 
 class ServiceTypeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function getLaundry()
     {
-        //
+        // $dataLaundry = $Laundry->get();
+
+        return view ('jenislaundry.v_jenislaundry');
     }
 
     /**

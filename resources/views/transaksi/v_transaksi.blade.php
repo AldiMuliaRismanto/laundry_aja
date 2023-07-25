@@ -1,6 +1,6 @@
 @extends('layout.v_template')
 
-@section('title','Dashboard | Laundry Aja')
+@section('title','Dashboard | Transaksi')
     
 
 @section('content')

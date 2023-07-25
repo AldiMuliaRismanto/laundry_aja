@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\CustomerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ServiceTypeController;
+use App\Http\Controllers\TransactionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +27,20 @@ Route::controller(UserController::class)->name('Karyawan.')->group(function () {
 
 });
 
-    
+Route::controller(CustomerController::class)->name('Customer')->group(function () {
+    Route::get('/customer', 'getcustomer')->name('getcustomer');
+    Route::get('/customer/tambahcustomer', 'tambahcustomer')->name('tambahcustomer');
+    Route::post('/customer/addcustomer', 'addcustomer')->name('addcustomer');
+});
 
+Route::controller(ServiceTypeController::class)->name('Laundry')->group(function () {
+    Route::get('/Laundry', 'getLaundry')->name('getLaundry');
+    Route::get('/Laundry/tambahLaundry', 'tambahLaundry')->name('tambahLaundry');
+    Route::post('/Laundry/addLaundry', 'addLaundry')->name('addLaundry');
+});
 
-
+Route::controller(TransactionController::class)->name('Transaksi')->group(function () {
+    Route::get('/Transaksi', 'getTransaksi')->name('getTransaksi');
+    Route::get('/Transaksi/tambahTransaksi', 'tambahTransaksi')->name('tambahTransaksi');
+    Route::post('/Transaksi/addTransaksi', 'addTransaksi')->name('addTransaksi');
+});

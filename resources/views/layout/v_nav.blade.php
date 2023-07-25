@@ -13,13 +13,13 @@
           </p>
         </a>
           <li class="nav-item">
-            <a href="/Dosen" class="nav-link">
+            <a href="/Laundry" class="nav-link">
               <i class="fas fa-book nav-icon"></i>
               <p>Jenis Laundry</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="/User" class="nav-link">
+            <a href="/Transaksi" class="nav-link">
               <i class="fas fa-user nav-icon"></i>
               <p>Transaksi</p>
             </a>
@@ -35,7 +35,7 @@
       </li>
 
       <li class="nav-item">
-        <a href="" class="nav-link">
+        <a href="/customer" class="nav-link">
           <i class="fas fa-user nav-icon"></i>
           <p>
             Data Customer
