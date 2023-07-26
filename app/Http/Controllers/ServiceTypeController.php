@@ -5,14 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\ServiceType;
 use App\Http\Requests\StoreServiceTypeRequest;
 use App\Http\Requests\UpdateServiceTypeRequest;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ServiceTypeController extends Controller
 {
-    public function getLaundry()
+    public function getLaundry(ServiceType $servicetype)
     {
-        // $dataLaundry = $Laundry->get();
+        $datajenislaundry = $servicetype->get();
 
-        return view ('admin.jenislaundry.v_jenislaundry');
+        return view ('admin.jenislaundry.v_jenislaundry', compact('datajenislaundry'));
     }
 
     /**

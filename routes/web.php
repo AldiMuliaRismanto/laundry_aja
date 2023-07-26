@@ -69,4 +69,5 @@ Route::controller(TransactionController::class)->name('Transaksi.')->group(funct
     Route::post('/Transaksi/addTransaksi', 'addTransaksi')->name('addTransaksi');
 });
 
+
 });
