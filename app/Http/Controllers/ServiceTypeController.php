@@ -6,6 +6,8 @@ use App\Models\ServiceType;
 use App\Http\Requests\StoreServiceTypeRequest;
 use App\Http\Requests\UpdateServiceTypeRequest;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Http\Request;
+
 
 class ServiceTypeController extends Controller
 {
@@ -16,9 +18,26 @@ class ServiceTypeController extends Controller
         return view ('admin.jenislaundry.v_jenislaundry', compact('datajenislaundry'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+    public function tambahlaundry()
+    {
+        return view('admin.jenislaundry.v_tambahjenislaundry');
+    }
+
+    public function addLaundry(ServiceType $servicetype, Request $servicetypeRequest)
+    {
+        $data = $servicetypeRequest->all();
+        $servicetype->create($data);
+        Alert::success('Berhasil', "Data Berhasil Ditambahkan");
+        return redirect(route('Laundry.getLaundry'));
+    }
+
+    public function deleteLaundry(ServiceType $servicetype)
+    {
+        $servicetype->delete();
+        Alert()->success('Berhasil!', 'Data Berhasil Di Hapus');
+        return back();
+    }
+
     public function create()
     {
         //

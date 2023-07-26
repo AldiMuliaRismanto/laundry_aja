@@ -14,7 +14,8 @@
                 <th>No</th>
                 <th>Nama Layanan</th>
                 <th>Kategori</th>
-                <th>Durasi</th>              
+                <th>Durasi</th>
+                <th>Action</th>            
             </tr>
         </thead>
         <tbody>
@@ -35,7 +36,7 @@
                     <span class="input-group-text border-0">
                         @csrf
                         @method('DELETE')
-                        <a href="" class="btn btn-danger" data-confirm-delete="true"><i class="fa fa-trash" aria-hidden="true"></i>Hapus</a>
+                        <a href="{{route('Laundry.deleteLaundry', $jenislaundry->id)}}" class="btn btn-danger" data-confirm-delete="true"><i class="fa fa-trash" aria-hidden="true"></i>Hapus</a>
                             </span>
                         </div>
 
