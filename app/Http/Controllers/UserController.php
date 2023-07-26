@@ -14,12 +14,12 @@ class UserController extends Controller
         $text = "Apakah Anda Yakin ingin Menghapusnya?";
         confirmDelete($judul, $text);
 
-        return view ('admin.v_karyawan', compact('datauser'));
+        return view ('admin.karyawan.v_karyawan', compact('datauser'));
     }
 
     public function tambahKaryawan()
     {
-        return view('admin.v_tambahkaryawan');
+        return view('admin.karyawan.v_tambahkaryawan');
     }
 
     public function addKaryawan(User $user, Request $userRequest)
@@ -40,7 +40,7 @@ class UserController extends Controller
 
     public function editKaryawan(User $user)
     {
-        return view('admin.v_editKaryawan', compact('user'));
+        return view('admin.karyawan.v_editKaryawan', compact('user'));
     }
 
     public function updateKaryawan(User $user, Request $userRequest )

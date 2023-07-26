@@ -10,7 +10,7 @@ class TransactionController extends Controller
 {
     public function getTransaksi()
     {
-        return view ('transaksi.v_transaksi');
+        return view ('admin.transaksi.v_transaksi');
     }
 
     /**

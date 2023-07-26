@@ -12,7 +12,7 @@ class ServiceTypeController extends Controller
     {
         // $dataLaundry = $Laundry->get();
 
-        return view ('jenislaundry.v_jenislaundry');
+        return view ('admin.jenislaundry.v_jenislaundry');
     }
 
     /**

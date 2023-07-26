@@ -6,7 +6,7 @@
            with font-awesome or any other icon font library -->
            <li class="nav-header">MAIN NAVIGATION </li>
       <li class ="nav-item">
-        <a href="/" class="nav-link">
+        <a href="dashboard" class="nav-link">
           <i class="nav-icon fas fa-home"></i>
           <p>
             Dashboard
@@ -39,6 +39,15 @@
           <i class="fas fa-user nav-icon"></i>
           <p>
             Data Customer
+          </p>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a href="{{route('logout')}}" class="nav-link">
+          <i class=""></i>
+          <p>
+            Logout
           </p>
         </a>
       </li>

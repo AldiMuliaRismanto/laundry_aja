@@ -19,17 +19,6 @@
             </tr>
         </thead>
         <tbody>
-            @php
-            $no=1;
-        @endphp
-       @foreach ($datacustomer as $index => $customer)
-           <tr>
-            <td>{{$no++}}</td>
-            <td>{{$customer->name}}</td>
-            <td>{{$customer->address}}</td>
-            <td>{{$customer->telephone}}</td>
-        </tbody>
-        @endforeach 
     </table>
     
 @endsection

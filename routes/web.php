@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ServiceTypeController;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\Auth\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +19,21 @@ use App\Http\Controllers\TransactionController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index'] );
+//Route::get('/', [HomeController::class, 'index'] );
+
+Route::get('login', [AuthController::class, 'index'])->name('login');
+Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post');
+Route::get('registration', [AuthController::class, 'registration'])->name('register');
+Route::post('post-registration', [AuthController::class, 'postRegistration'])->name('register.post');
+
+
+Route::middleware('auth','admin')->group(function () {
+    Route::get('dashboard', [AuthController::class, 'dashboard']);
+
+    Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+
+
+
 
 Route::controller(UserController::class)->name('Karyawan.')->group(function () {
     Route::get('/Karyawan', 'getKaryawan')->name('getKaryawan');
@@ -30,20 +45,28 @@ Route::controller(UserController::class)->name('Karyawan.')->group(function () {
 
 });
 
-Route::controller(CustomerController::class)->name('Customer')->group(function () {
+
+
+
+
+
+
+Route::controller(CustomerController::class)->name('Customer.')->group(function () {
     Route::get('/customer', 'getcustomer')->name('getcustomer');
     Route::get('/customer/tambahcustomer', 'tambahcustomer')->name('tambahcustomer');
     Route::post('/customer/addcustomer', 'addcustomer')->name('addcustomer');
 });
 
-Route::controller(ServiceTypeController::class)->name('Laundry')->group(function () {
+Route::controller(ServiceTypeController::class)->name('Laundry.')->group(function () {
     Route::get('/Laundry', 'getLaundry')->name('getLaundry');
     Route::get('/Laundry/tambahLaundry', 'tambahLaundry')->name('tambahLaundry');
     Route::post('/Laundry/addLaundry', 'addLaundry')->name('addLaundry');
 });
 
-Route::controller(TransactionController::class)->name('Transaksi')->group(function () {
+Route::controller(TransactionController::class)->name('Transaksi.')->group(function () {
     Route::get('/Transaksi', 'getTransaksi')->name('getTransaksi');
     Route::get('/Transaksi/tambahTransaksi', 'tambahTransaksi')->name('tambahTransaksi');
     Route::post('/Transaksi/addTransaksi', 'addTransaksi')->name('addTransaksi');
+});
+
 });

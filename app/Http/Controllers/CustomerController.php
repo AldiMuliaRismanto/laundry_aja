@@ -8,13 +8,25 @@ use Illuminate\Http\Request;
 //use App\Http\Requests\StoreCustomerRequest;
 //use App\Http\Requests\UpdateCustomerRequest;
 
+//Halaman Khusus Akses Admin 
+
 class CustomerController extends Controller
 {
     public function getCustomer()
     {
         // $datacustomer = $customer->get();
 
-        return view ('Customer.v_customer', compact('datacustomer'));
+        return view ('admin.customer.v_customer');
     }
+
+
+
+
+
+//Halaman Khusus Kasir 
    
+    public function dataCustomer()
+    {
+        return view ('kasir.customer.v_customer');
+    }
 }
