@@ -25,8 +25,8 @@ class ServiceTypeController extends Controller
 
     public function addLaundry(ServiceType $servicetype, Request $servicetypeRequest)
     {
-        $data = $servicetypeRequest->all();
-        $servicetype->create($data);
+        $datajenislaundry= $servicetypeRequest->all();
+        $servicetype->create($datajenislaundry);
         Alert::success('Berhasil', "Data Berhasil Ditambahkan");
         return redirect(route('Laundry.getLaundry'));
     }
@@ -38,48 +38,23 @@ class ServiceTypeController extends Controller
         return back();
     }
 
-    public function create()
+
+
+    
+    public function editLaundry(ServiceType $servicetype)
     {
-        //
+        return view('admin.jenislaundry.v_editjenislaundry', compact('datajenislaundry'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreServiceTypeRequest $request)
+    public function update(ServiceType $servicetype, Request $servicetypeRequest )
     {
-        //
-    }
+        $datajenislaundry = $servicetypeRequest->all();
+        if ($servicetypeRequest->password) {
+            $datajenislaundry['password'] = bcrypt($servicetypeRequest->password);
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(ServiceType $serviceType)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(ServiceType $serviceType)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateServiceTypeRequest $request, ServiceType $serviceType)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(ServiceType $serviceType)
-    {
-        //
+            $servicetype->update($datajenislaundry);
+            Alert::success('Berhasil', "Data Berhasil Diubah");
+            return redirect(route('Laundry.getLaundry'));
+        }
     }
 }

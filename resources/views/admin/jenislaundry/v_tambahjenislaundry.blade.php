@@ -33,7 +33,8 @@
     <div class="input-group-prepend">
              <span class="input-group-text" id="name">Durasi</span>
             </div>
-                <input type="text" name="duration" class="form-control" placeholder="" aria-label="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="text" name="duration" class="form-control" placeholder="" 
+                aria-label="exampleInputEmail1" aria-describedby="emailHelp">
 </div>
 
   <br>

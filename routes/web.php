@@ -45,9 +45,6 @@ Route::controller(UserController::class)->name('Karyawan.')->group(function () {
 
 });
 
-
-
-
 Route::controller(CustomerController::class)->name('Customer.')->group(function () {
     Route::get('/customer', 'getcustomer')->name('getcustomer');
     Route::get('/customer/tambahcustomer', 'tambahcustomer')->name('tambahcustomer');
@@ -58,7 +55,9 @@ Route::controller(ServiceTypeController::class)->name('Laundry.')->group(functio
     Route::get('/Laundry', 'getLaundry')->name('getLaundry');
     Route::get('/Laundry/tambahLaundry', 'tambahLaundry')->name('tambahLaundry');
     Route::post('/Laundry/addLaundry', 'addLaundry')->name('addLaundry');
-    Route::delete('/Laundry/destroy/{servicetype}', 'deleteLaundry')->name('deleteLaundry');
+    Route::delete('/Laundry/deleteLaundry/{servicetype}', 'deleteLaundry')->name('deleteLaundry');
+    Route::get('/Laundry/editLaundry/{servicetype}', 'editLaundry')->name('editLaundry');
+    Route::patch('/Laundry/updateLaundry/{servicetype}', 'updateLaundry')->name('updateLaundry');
 });
 
 Route::controller(TransactionController::class)->name('Transaksi.')->group(function () {
