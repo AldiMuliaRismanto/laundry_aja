@@ -5,62 +5,29 @@ namespace App\Http\Controllers;
 use App\Models\Service;
 use App\Http\Requests\StoreServiceRequest;
 use App\Http\Requests\UpdateServiceRequest;
+use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Http\Request;
 
 class ServiceController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function getLayanan(Service $service)
     {
-        //
+        $datalayanan = $service->get();
+
+        return view ('admin.layanan.v_layanan', compact('datalayanan'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function tambahLayanan()
     {
-        //
+        return view('admin.layanan.v_tambahlayanan');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreServiceRequest $request)
+    public function addLayanan(Service $service, Request $serviceRequest)
     {
-        //
+        $datalayanan= $serviceRequest->all();
+        $service->create($datalayanan);
+        Alert::success('Berhasil', "Data Berhasil Ditambahkan");
+        return redirect(route('Layanan.getLayanan'));
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Service $service)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Service $service)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateServiceRequest $request, Service $service)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Service $service)
-    {
-        //
-    }
 }

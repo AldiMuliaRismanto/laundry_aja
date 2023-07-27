@@ -18,6 +18,16 @@
               <p>Jenis Laundry</p>
             </a>
           </li>
+
+          <li class="nav-item">
+            <a href="/Layanan" class="nav-link">
+              <i class="fas fa-user nav-icon"></i>
+              <p>
+                Layanan
+              </p>
+            </a>
+          </li>
+
           <li class="nav-item">
             <a href="/Transaksi" class="nav-link">
               <i class="fas fa-user nav-icon"></i>
@@ -42,6 +52,8 @@
           </p>
         </a>
       </li>
+
+      
 
       <li class="nav-item">
         <a href="{{route('logout')}}" class="nav-link">

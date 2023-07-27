@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ServiceTypeController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\ServiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,5 +67,10 @@ Route::controller(TransactionController::class)->name('Transaksi.')->group(funct
     Route::post('/Transaksi/addTransaksi', 'addTransaksi')->name('addTransaksi');
 });
 
+Route::controller(ServiceController::class)->name('Layanan')->group(function () {
+    Route::get('/Layanan', 'getLayanan')->name('getLayanan');
+    Route::get('/Layanan/tambahLayanan', 'tambahLayanan')->name('tambahLayanan');
+    Route::post('/Layanan/addLayanan', 'addLayanan')->name('addLayanan');
+});
 
 });
