@@ -1,20 +1,21 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\User;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class UserController extends Controller
 {
-    public function index(User $user)
+    public function getKaryawan(User $user)
     {
         $datauser = $user->get();
         $judul = 'Hapus Data!';
         $text = "Apakah Anda Yakin ingin Menghapusnya?";
         confirmDelete($judul, $text);
 
-        return view ('admin.karyawan.v_karyawan', compact('datauser'));
+        return view('admin.karyawan.v_karyawan', compact('datauser'));
     }
 
     public function tambahKaryawan()
@@ -43,7 +44,7 @@ class UserController extends Controller
         return view('admin.karyawan.v_editKaryawan', compact('user'));
     }
 
-    public function updateKaryawan(User $user, Request $userRequest )
+    public function updateKaryawan(User $user, Request $userRequest)
     {
         $data = $userRequest->all();
 
@@ -54,8 +55,5 @@ class UserController extends Controller
             Alert::success('Berhasil', "Data Berhasil Diubah");
             return redirect(route('Karyawan.getKaryawan'));
         }
-
-        
     }
-    
 }

@@ -16,43 +16,38 @@ class AuthController extends Controller
     public function index()
     {
         return view('auth.v_login');
-        
-         /**
-     * Write code on Method
-     *
-     * @return response()
-     */
+
+        /**
+         * Write code on Method
+         *
+         * @return response()
+         */
     }
 
     public function postLogin(Request $request)
     {
         $request->validate([
             'email' => 'required|email',
-            'password' =>'required',
+            'password' => 'required',
         ]);
 
         $credentials = $request->only('email', 'password');
-        if (Auth::attempt($credentials)){
-            toast('Login Berhasil','success');
-            return redirect()->intended('dashboard');        
-
+        if (Auth::attempt($credentials)) {
+            toast('Login Berhasil', 'success');
+            return redirect()->intended('dashboard');
+        }
+        toast('Login Gagal', 'error');
+        return Redirect::back();
     }
-    toast('Login Gagal','error');
-    return Redirect::back();
-    
-            
 
-
-}
-
- /**
+    /**
      * Write code on Method
      *
      * @return response()
      */
 
-     public function dashboard()
-     {
+    public function dashboard()
+    {
         $user_id = auth()->user()->id;
         $role = User::where('id', $user_id)->value('role');
         // dd($role);
@@ -65,22 +60,21 @@ class AuthController extends Controller
 
         return redirect("login")->withSuccess('Opps! You do not have access');
 
-            /**
-     * Write code on Method
-     *
-     * @return response()
-     */
-     }
+        /**
+         * Write code on Method
+         *
+         * @return response()
+         */
+    }
 
 
 
-     public function logout()
-     {
+    public function logout()
+    {
         Session::flush();
         Auth::logout();
 
-        toast('Logout Berhasil','success');
+        toast('Logout Berhasil', 'success');
         return Redirect('login');
-     }
-
+    }
 }
