@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('the_amount_of_goods');
             $table->string('total');
             $table->date('pick_up_date');
+            $table->timestamps();
         });
     }
 

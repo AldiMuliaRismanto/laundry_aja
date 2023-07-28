@@ -53,8 +53,14 @@ class AuthController extends Controller
 
      public function dashboard()
      {
-        if(Auth::check()){
+        $user_id = auth()->user()->id;
+        $role = User::where('id', $user_id)->value('role');
+        // dd($role);
+
+        if ($role == 'admin') {
             return view('admin.v_dashboard');
+        } else if ($role == 'cashier') {
+            return view('kasir.v_dashboard');
         }
 
         return redirect("login")->withSuccess('Opps! You do not have access');
@@ -66,39 +72,7 @@ class AuthController extends Controller
      */
      }
 
-     public function registration()
-     {
-        return view('auth.v_registration');
-     }
 
-     public function postRegistration(Request $request)
-     {
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required|email|unique:users',
-            'password' => 'required',
-            'address' =>'required',
-            'telephone' => 'required',
-
-        ]);
-
-        $data = $request->all();
-        $check = $this->create($data);
-
-        toast('Registrasi Berhasil','success');
-        return redirect("login");
-     }
-
-     public function create(array $data)
-     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-            'address' => $data['address'],
-            'telephone' => $data['telephone'],
-        ]);
-     }
 
      public function logout()
      {

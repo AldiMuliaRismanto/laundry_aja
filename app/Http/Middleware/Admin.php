@@ -17,9 +17,10 @@ class Admin
    */
     public function handle(Request $request, Closure $next)
     {
-        if ($request->user()->role == 'admin'){
-            return $next($request);
+        if ($request->user()->role == 'cashier'){
+            return redirect()->to(route('Karyawan.getKaryawan'));
         }
-        return response()->json('Your Account is inactive');
+            return $next($request);
+    
     }
 }

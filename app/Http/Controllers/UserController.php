@@ -7,7 +7,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class UserController extends Controller
 {
-    public function getKaryawan(User $user)
+    public function index(User $user)
     {
         $datauser = $user->get();
         $judul = 'Hapus Data!';
@@ -54,10 +54,8 @@ class UserController extends Controller
             Alert::success('Berhasil', "Data Berhasil Diubah");
             return redirect(route('Karyawan.getKaryawan'));
         }
+
+        
     }
-
-
-
-
     
 }

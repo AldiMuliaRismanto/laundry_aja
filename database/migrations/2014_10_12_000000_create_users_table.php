@@ -16,9 +16,10 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('address');
+            $table->text('address');
             $table->string('telephone');
             $table->enum('role', ['admin', 'cashier']);
+            $table->timestamps();
         });
     }
 

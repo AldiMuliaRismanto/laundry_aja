@@ -16,7 +16,9 @@ return new class extends Migration
             $table->string('name_service_type');
             $table->enum('category', ['fast', 'regular']);
             $table->string('duration');
+            $table->timestamps();
         });
+        
     }
 
     /**

@@ -21,56 +21,62 @@ use App\Http\Controllers\ServiceController;
 */
 
 //Route::get('/', [HomeController::class, 'index'] );
+Route::get('/', function(){
+    return redirect()->to(route('Karyawan.getKaryawan'));
+})->middleware('auth');
 
-Route::get('login', [AuthController::class, 'index'])->name('login');
-Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post');
-Route::get('registration', [AuthController::class, 'registration'])->name('register');
-Route::post('post-registration', [AuthController::class, 'postRegistration'])->name('register.post');
+Route::middleware('guest')->group(function (){
+    Route::get('login', [AuthController::class, 'index'])->name('login');
+    Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post');
+});
+Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
-
-Route::middleware('auth','admin')->group(function () {
+//Route Halaman Admin
+Route::middleware(['auth'])->group(function () {
     Route::get('dashboard', [AuthController::class, 'dashboard']);
 
-    Route::get('logout', [AuthController::class, 'logout'])->name('logout');
-
-
-
-
-Route::controller(UserController::class)->name('Karyawan.')->group(function () {
-    Route::get('/Karyawan', 'getKaryawan')->name('getKaryawan');
-    Route::get('/Karyawan/tambahKaryawan', 'tambahKaryawan')->name('tambahkKaryawan');
-    Route::post('/Karyawan/addKaryawan', 'addKaryawan')->name('addKaryawan');
-    Route::delete('/Karyawan/deleteKaryawan/{user}', 'deleteKaryawan')->name('deleteKaryawan');
-    Route::get('/Karyawan/editKaryawan/{user}', 'editKaryawan')->name('editKaryawan');
-    Route::patch('/Karyawan/updateKaryawan/{user}', 'updateKaryawan')->name('updateKaryawan');
+        Route::controller(UserController::class)->name('Karyawan.')->group(function () {
+        Route::get('/Karyawan', 'getKaryawan')->name('getKaryawan');
+        Route::get('/Karyawan/tambahKaryawan', 'tambahKaryawan')->name('tambahkKaryawan');
+        Route::post('/Karyawan/addKaryawan', 'addKaryawan')->name('addKaryawan');
+        Route::delete('/Karyawan/deleteKaryawan/{user}', 'deleteKaryawan')->name('deleteKaryawan');
+        Route::get('/Karyawan/editKaryawan/{user}', 'editKaryawan')->name('editKaryawan');
+        Route::patch('/Karyawan/updateKaryawan/{user}', 'updateKaryawan')->name('updateKaryawan');
 
 });
 
-Route::controller(CustomerController::class)->name('Customer.')->group(function () {
-    Route::get('/customer', 'getcustomer')->name('getcustomer');
-    Route::get('/customer/tambahcustomer', 'tambahcustomer')->name('tambahcustomer');
-    Route::post('/customer/addcustomer', 'addcustomer')->name('addcustomer');
+        Route::controller(CustomerController::class)->name('Customer.')->group(function () {
+        Route::get('/customer', 'getcustomer')->name('getcustomer');
+        Route::get('/customer/tambahcustomer', 'tambahcustomer')->name('tambahcustomer');
+        Route::post('/customer/addcustomer', 'addcustomer')->name('addcustomer');
 });
 
-Route::controller(ServiceTypeController::class)->name('Laundry.')->group(function () {
-    Route::get('/Laundry', 'getLaundry')->name('getLaundry');
-    Route::get('/Laundry/tambahLaundry', 'tambahLaundry')->name('tambahLaundry');
-    Route::post('/Laundry/addLaundry', 'addLaundry')->name('addLaundry');
-    Route::delete('/Laundry/deleteLaundry/{servicetype}', 'deleteLaundry')->name('deleteLaundry');
-    Route::get('/Laundry/editLaundry/{servicetype}', 'editLaundry')->name('editLaundry');
-    Route::patch('/Laundry/updateLaundry/{servicetype}', 'updateLaundry')->name('updateLaundry');
+        Route::controller(ServiceTypeController::class)->name('Laundry.')->group(function () {
+        Route::get('/Laundry', 'getLaundry')->name('getLaundry');
+        Route::get('/Laundry/tambahLaundry', 'tambahLaundry')->name('tambahLaundry');
+        Route::post('/Laundry/addLaundry', 'addLaundry')->name('addLaundry');
+        Route::delete('/Laundry/deleteLaundry/{servicetype}', 'deleteLaundry')->name('deleteLaundry');
+        Route::get('/Laundry/editLaundry/{servicetype}', 'editLaundry')->name('editLaundry');
+        Route::patch('/Laundry/updateLaundry/{servicetype}', 'updateLaundry')->name('updateLaundry');
 });
 
-Route::controller(TransactionController::class)->name('Transaksi.')->group(function () {
-    Route::get('/Transaksi', 'getTransaksi')->name('getTransaksi');
-    Route::get('/Transaksi/tambahTransaksi', 'tambahTransaksi')->name('tambahTransaksi');
-    Route::post('/Transaksi/addTransaksi', 'addTransaksi')->name('addTransaksi');
+        Route::controller(TransactionController::class)->name('Transaksi.')->group(function () {
+        Route::get('/Transaksi', 'getTransaksi')->name('getTransaksi');
+        Route::get('/Transaksi/tambahTransaksi', 'tambahTransaksi')->name('tambahTransaksi');
+        Route::post('/Transaksi/addTransaksi', 'addTransaksi')->name('addTransaksi');
 });
 
-Route::controller(ServiceController::class)->name('Layanan')->group(function () {
-    Route::get('/Layanan', 'getLayanan')->name('getLayanan');
-    Route::get('/Layanan/tambahLayanan', 'tambahLayanan')->name('tambahLayanan');
-    Route::post('/Layanan/addLayanan', 'addLayanan')->name('addLayanan');
+        Route::controller(ServiceController::class)->name('Layanan')->group(function () {
+        Route::get('/Layanan', 'getLayanan')->name('getLayanan');
+        Route::get('/Layanan/tambahLayanan', 'tambahLayanan')->name('tambahLayanan');
+        Route::post('/Layanan/addLayanan', 'addLayanan')->name('addLayanan');
 });
 
 });
+
+
+//Route Halaman Kasir
+
+
+
+

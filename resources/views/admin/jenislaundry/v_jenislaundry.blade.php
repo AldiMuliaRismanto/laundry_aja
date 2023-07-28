@@ -36,7 +36,7 @@
                     <span class="input-group-text border-0">
                         @csrf
                         @method('DELETE')
-                        <a href="{{route('Laundry.deleteLaundry', $jenislaundry->id)}}" class="btn btn-danger" data-confirm-delete="true"><i class="fa fa-trash" aria-hidden="true"></i>Hapus</a>
+                        <a href="{{route('Laundry.deleteLaundry', $jenislaundry->id)}}" id="delete-form" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>Hapus</a>
                             </span>
                         </div>
 
@@ -62,3 +62,4 @@ $(document).ready( function () {
 
 </script>
 @endsection
+

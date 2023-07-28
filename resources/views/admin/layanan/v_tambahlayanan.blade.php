@@ -5,7 +5,7 @@
 
 @section('content')
 
-<form action="{{route('Layanan.addLayanan')}}" method="POST">
+<form action="{{route('LayananaddLayanan')}}" method="POST">
     @csrf
     <div class="content">
         <div class="row">

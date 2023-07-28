@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('id_service_type');
             $table->string('name_service');
             $table->string('price');
+            $table->timestamps();
         });
     }
 

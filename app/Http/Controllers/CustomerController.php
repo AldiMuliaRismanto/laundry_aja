@@ -17,6 +17,9 @@ class CustomerController extends Controller
         // $datacustomer = $customer->get();
 
         return view ('admin.customer.v_customer');
+        
+
+
     }
 
 
