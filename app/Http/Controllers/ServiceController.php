@@ -30,4 +30,23 @@ class ServiceController extends Controller
         return redirect(route('Layanan.getLayanan'));
     }
 
+    public function editLayanan(Service $service)
+    {
+        return view('admin.layanan.v_editlayanan', compact('service'));
+    }
+
+    public function updateLayanan(Service $service, Request $serviceRequest )
+    {
+        $datalayanan = $serviceRequest->all();
+            $service->update($datalayanan);
+            Alert::success('Berhasil', "Data Berhasil Diubah");
+            return redirect(route('Layanan.getLayanan'));
+    }
+
+    public function deleteLayanan(Service $service)
+        {
+            $service->delete();
+            Alert()->success('Berhasil', 'Data Berhasil Di Hapus');
+            return back();
+        }
 }

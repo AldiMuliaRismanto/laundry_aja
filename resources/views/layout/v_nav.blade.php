@@ -12,12 +12,13 @@
             Dashboard
           </p>
         </a>
-          <li class="nav-item">
-            <a href="/Laundry" class="nav-link">
-              <i class="fas fa-book nav-icon"></i>
-              <p>Jenis Laundry</p>
-            </a>
-          </li>
+
+        <li class="nav-item">
+          <a href="/Transaksi" class="nav-link">
+            <i class="fas fa-user nav-icon"></i>
+            <p>Transaksi</p>
+          </a>
+        </li>
 
           <li class="nav-item">
             <a href="/Layanan" class="nav-link">
@@ -28,12 +29,7 @@
             </a>
           </li>
 
-          <li class="nav-item">
-            <a href="/Transaksi" class="nav-link">
-              <i class="fas fa-user nav-icon"></i>
-              <p>Transaksi</p>
-            </a>
-          </li>
+          
         <li class="nav-header">Data </li>
       <li class="nav-item">
         <a href="/Karyawan" class="nav-link">
@@ -52,8 +48,6 @@
           </p>
         </a>
       </li>
-
-      
 
       <li class="nav-item">
         <a href="{{route('logout')}}" class="nav-link">

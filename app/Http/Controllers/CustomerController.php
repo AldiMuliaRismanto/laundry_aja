@@ -1,35 +1,53 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Customer;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
-//use App\Models\Customer;
-//use App\Http\Requests\StoreCustomerRequest;
-//use App\Http\Requests\UpdateCustomerRequest;
-
-//Halaman Khusus Akses Admin 
 
 class CustomerController extends Controller
 {
-    public function getCustomer()
+    public function getcustomer(Customer $customer)
     {
-        // $datacustomer = $customer->get();
+        $datacustomer = $customer->get();
 
-        return view ('admin.customer.v_customer');
-        
+        return view ('admin.customer.v_customer', compact('datacustomer'));
+    }
 
+    public function tambahcustomer()
+    {
+        return view('admin.customer.v_tambahcustomer');
+    }
 
+    public function addcustomer(Customer $customer, Request $customerRequest)
+    {
+        $datacustomer= $customerRequest->all();
+        $customer->create($datacustomer);
+        Alert::success('Berhasil', "Data Berhasil Ditambahkan");
+        return redirect(route('Customer.getcustomer'));
+    }
+
+    public function editcustomer(Customer $customer)
+    {
+        return view('admin.customer.v_editcustomer', compact('customer'));
+    }
+
+    public function updatecustomer(Customer $customer, Request $customerRequest )
+    {
+            $datacustomer = $customerRequest->all();
+            $customer->update($datacustomer);
+            Alert::success('Berhasil', "Data Berhasil Diubah");
+            return redirect(route('Customer.getcustomer'));
+        }
+
+        public function deletecustomer(Customer $customer)
+        {
+            $customer->delete();
+            Alert()->success('Berhasil', 'Data Berhasil Di Hapus');
+            return back();
+        }
     }
 
 
-
-
-
-//Halaman Khusus Kasir 
-   
-    public function dataCustomer()
-    {
-        return view ('kasir.customer.v_customer');
-    }
-}

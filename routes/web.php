@@ -4,7 +4,6 @@ use App\Http\Controllers\CustomerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\ServiceTypeController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\ServiceController;
@@ -45,6 +44,7 @@ Route::middleware(['auth'])->group(function () {
 
 });
 
+
         Route::controller(CustomerController::class)->name('Customer.')->group(function () {
         Route::get('/customer', 'getcustomer')->name('getcustomer');
         Route::get('/customer/tambahcustomer', 'tambahcustomer')->name('tambahcustomer');
@@ -66,10 +66,20 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/Transaksi/addTransaksi', 'addTransaksi')->name('addTransaksi');
 });
 
+<<<<<<< HEAD
         Route::controller(ServiceController::class)->name('Layanan')->group(function () {
         Route::get('/Layanan', 'getLayanan')->name('getLayanan');
         Route::get('/Layanan/tambahLayanan', 'tambahLayanan')->name('tambahLayanan');
         Route::post('/Layanan/addLayanan', 'addLayanan')->name('addLayanan');
+=======
+Route::controller(ServiceController::class)->name('Layanan.')->group(function () {
+    Route::get('/Layanan', 'getLayanan')->name('getLayanan');
+    Route::get('/Layanan/tambahLayanan', 'tambahLayanan')->name('tambahLayanan');
+    Route::post('/Layanan/addLayanan', 'addLayanan')->name('addLayanan');
+    Route::delete('Layanan/deleteLayanan/{service}', 'deleteLayanan')->name('deleteLayanan');
+    Route::get('/Layanan/editLayanan/{service}', 'editLayanan')->name('editLayanan');
+    Route::patch('/Layanan/updateLayanan/{service}', 'updateLayanan')->name('Layanan');
+>>>>>>> 8a2660e9a67cd5c6223ab4d7d42fd604736dd169
 });
 
 });
