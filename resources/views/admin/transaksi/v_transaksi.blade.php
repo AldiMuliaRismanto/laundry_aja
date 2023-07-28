@@ -13,7 +13,7 @@
         <thead>
             <tr>
                 <th>No</th>
-                <th>Id Konsumen</th>
+                <th>Nama Konsumen</th>
                 <th>Tanggal Masuk</th>
                 <th>Id Jenis</th>
                 <th>Id User</th>

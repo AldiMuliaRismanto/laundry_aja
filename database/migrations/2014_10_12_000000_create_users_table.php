@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('address');
             $table->string('telephone');
             $table->enum('role', ['admin', 'cashier']);
+            $table->timestamps();
         });
     }
 

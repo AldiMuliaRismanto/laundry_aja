@@ -12,9 +12,9 @@
         <thead>
             <tr>
                 <th>No</th>
-                <th>id_jenis</th>
                 <th>Nama Layanan</th>
                 <th>Harga</th>
+                <th>Durasi</th>
                 <th>Action</th>            
             </tr>
         </thead>
@@ -22,25 +22,25 @@
             @php
             $no=1;
         @endphp
-       @foreach ($datalayanan as $index => $layanan)
+       @foreach ($datalayanan as $index => $service)
            <tr>
             <td>{{$no++}}</td>
-            <td>{{$layanan->id_service_type}}</td>
-            <td>{{$layanan->name_service}}</td>
-            <td>{{$layanan->price}}</td>
+            <td>{{$service->name_service}}</td>
+            <td>{{$service->price}}</td>
+            <td>{{$service->duration}}</td>
             <td>
                 <div class="input-group mb-3">
-                    <span class="input-group-text border-0">
-                        <a href="" class="btn btn-warning"><i class="fa-regular fa-pen-to-square" aria-hidden="true"></i>Edit</a>
-                    </span>
-                    <span class="input-group-text border-0">
-                        @csrf
-                        @method('DELETE')
-                        <a href="" class="btn btn-danger" 
-                            data-confirm-delete="true"><i class="fa fa-trash" aria-hidden="true"></i>Hapus</a>
-                            </span>
-                        </div>
-
+                    <div class="input-group mb-3">
+                        <span class="input-group-text border-0">
+                            <a href="{{route('Layanan.editLayanan', $service->id)}}" class="btn btn-warning"><i class="fa-regular fa-pen-to-square" aria-hidden="true"></i>Edit</a>
+                        </span>
+                        <span class="input-group-text border-0">
+                            <form onsubmit="return confirm('Data Layanan akan dihapus ?')" action=" {{route('Layanan.deleteLayanan',$service->id)}}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type=" submit" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Hapus</button>
+                                    </form>
+                            </div>
             </td>
         </tbody>
         @endforeach 

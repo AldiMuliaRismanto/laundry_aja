@@ -4,7 +4,6 @@ use App\Http\Controllers\CustomerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\ServiceTypeController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\ServiceController;
@@ -50,16 +49,11 @@ Route::controller(CustomerController::class)->name('Customer.')->group(function 
     Route::get('/customer', 'getcustomer')->name('getcustomer');
     Route::get('/customer/tambahcustomer', 'tambahcustomer')->name('tambahcustomer');
     Route::post('/customer/addcustomer', 'addcustomer')->name('addcustomer');
+    Route::delete('/customer/deletecustomer/{customer}', 'deletecustomer')->name('deletecustomer');
+    Route::get('/customer/editcustomer/{customer}', 'editcustomer')->name('editcustomer');
+    Route::patch('/customer/updatecustomer/{customer}', 'updatecustomer')->name('updatecustomer');
 });
 
-Route::controller(ServiceTypeController::class)->name('Laundry.')->group(function () {
-    Route::get('/Laundry', 'getLaundry')->name('getLaundry');
-    Route::get('/Laundry/tambahLaundry', 'tambahLaundry')->name('tambahLaundry');
-    Route::post('/Laundry/addLaundry', 'addLaundry')->name('addLaundry');
-    Route::delete('/Laundry/deleteLaundry/{servicetype}', 'deleteLaundry')->name('deleteLaundry');
-    Route::get('/Laundry/editLaundry/{servicetype}', 'editLaundry')->name('editLaundry');
-    Route::patch('/Laundry/updateLaundry/{servicetype}', 'updateLaundry')->name('updateLaundry');
-});
 
 Route::controller(TransactionController::class)->name('Transaksi.')->group(function () {
     Route::get('/Transaksi', 'getTransaksi')->name('getTransaksi');
@@ -67,10 +61,13 @@ Route::controller(TransactionController::class)->name('Transaksi.')->group(funct
     Route::post('/Transaksi/addTransaksi', 'addTransaksi')->name('addTransaksi');
 });
 
-Route::controller(ServiceController::class)->name('Layanan')->group(function () {
+Route::controller(ServiceController::class)->name('Layanan.')->group(function () {
     Route::get('/Layanan', 'getLayanan')->name('getLayanan');
     Route::get('/Layanan/tambahLayanan', 'tambahLayanan')->name('tambahLayanan');
     Route::post('/Layanan/addLayanan', 'addLayanan')->name('addLayanan');
+    Route::delete('Layanan/deleteLayanan/{service}', 'deleteLayanan')->name('deleteLayanan');
+    Route::get('/Layanan/editLayanan/{service}', 'editLayanan')->name('editLayanan');
+    Route::patch('/Layanan/updateLayanan/{service}', 'updateLayanan')->name('Layanan');
 });
 
 });
