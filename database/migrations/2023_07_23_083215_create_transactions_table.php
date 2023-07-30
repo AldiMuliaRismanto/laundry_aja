@@ -17,7 +17,7 @@ return new class extends Migration
             $table->date('date_of_entry');
             $table->foreignId('service');
             $table->foreignId('user');
-            $table->string('status');
+            $table->enum('status', ['Proses Masuk', 'Proses', 'Proses Selesai']);
             $table->string('the_amount_of_goods');
             $table->string('total');
             $table->date('pick_up_date');

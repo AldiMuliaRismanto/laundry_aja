@@ -67,7 +67,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/Layanan/addLayanan', 'addLayanan')->name('addLayanan');
         Route::delete('Layanan/deleteLayanan/{service}', 'deleteLayanan')->name('deleteLayanan');
         Route::get('/Layanan/editLayanan/{service}', 'editLayanan')->name('editLayanan');
-        Route::patch('/Layanan/updateLayanan/{service}', 'updateLayanan')->name('Layanan');
+        Route::patch('/Layanan/updateLayanan/{service}', 'updateLayanan')->name('updateLayanan');
     });
 });
 

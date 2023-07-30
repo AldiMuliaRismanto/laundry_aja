@@ -7,5 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Service extends Model
 {
+    public $timestamps = false;
+
     use HasFactory;
+
+    protected $fillable = [
+        'name_service',
+        'price',
+        'duration',
+    ];
 }

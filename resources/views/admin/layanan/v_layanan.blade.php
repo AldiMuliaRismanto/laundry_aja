@@ -25,20 +25,21 @@
        @foreach ($datalayanan as $index => $layanan)
            <tr>
             <td>{{$no++}}</td>
-            <td>{{$layanan->id_service_type}}</td>
             <td>{{$layanan->name_service}}</td>
             <td>{{$layanan->price}}</td>
+            <td>{{$layanan->duration}}</td>
             <td>
                 <div class="input-group mb-3">
                     <span class="input-group-text border-0">
-                        <a href="" class="btn btn-warning"><i class="fa-regular fa-pen-to-square" aria-hidden="true"></i>Edit</a>
+                        <a href="{{route('Layanan.editLayanan', $layanan->id)}}" class="btn btn-warning"><i class="fa-regular fa-pen-to-square" aria-hidden="true"></i>Edit</a>
                     </span>
                     <span class="input-group-text border-0">
-                        @csrf
-                        @method('DELETE')
-                        <a href="" class="btn btn-danger" 
-                            data-confirm-delete="true"><i class="fa fa-trash" aria-hidden="true"></i>Hapus</a>
-                            </span>
+                        <form onsubmit="return confirm('Data layanan akan dihapus ?')" action=" {{route('Layanan.deleteLayanan',$layanan->id)}}" method="POST" ">
+                    @csrf
+                    @method('DELETE')
+                    <button type=" submit" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Hapus</button>
+                        </form>
+                    </span>
                         </div>
 
             </td>
