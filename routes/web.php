@@ -25,10 +25,8 @@ Route::get('/', function () {
     return redirect()->to(route('Karyawan.getKaryawan'));
 })->middleware('auth');
 
-Route::middleware('guest')->group(function () {
-    Route::get('login', [AuthController::class, 'index'])->name('login');
-    Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post');
-});
+Route::get('login', [AuthController::class, 'index'])->name('login');
+Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post');
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 //Route Halaman Admin
@@ -59,6 +57,9 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/Transaksi', 'getTransaksi')->name('getTransaksi');
         Route::get('/Transaksi/tambahTransaksi', 'tambahTransaksi')->name('tambahTransaksi');
         Route::post('/Transaksi/addTransaksi', 'addTransaksi')->name('addTransaksi');
+        Route::delete('/Transaksi/deleteTransaksi/{transaction}', 'deleteTransaksi')->name('deleteTransaksi');
+        Route::get('/Transaksi/edit/{transaction}', 'edit')->name('edit');
+        Route::patch('/Transaksi/updateTransaksi/{transaction}','updateTransaksi')->name('updateTransaksi');
     });
 
     Route::controller(ServiceController::class)->name('Layanan.')->group(function () {

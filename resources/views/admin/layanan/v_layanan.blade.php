@@ -12,9 +12,9 @@
         <thead>
             <tr>
                 <th>No</th>
-                <th>id_jenis</th>
                 <th>Nama Layanan</th>
                 <th>Harga</th>
+                <th>Durasi</th>
                 <th>Action</th>            
             </tr>
         </thead>
@@ -37,12 +37,13 @@
                         <form onsubmit="return confirm('Data layanan akan dihapus ?')" action=" {{route('Layanan.deleteLayanan',$layanan->id)}}" method="POST" ">
                     @csrf
                     @method('DELETE')
-                    <button type=" submit" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Hapus</button>
+                    <button type="submit" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Hapus</button>
                         </form>
                     </span>
                         </div>
 
             </td>
+           </tr>
         </tbody>
         @endforeach 
     </table>

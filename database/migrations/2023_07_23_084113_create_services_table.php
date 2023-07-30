@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name_service');
             $table->string('price');
             $table->string('duration');
+            $table->timestamps();
         });
     }
 

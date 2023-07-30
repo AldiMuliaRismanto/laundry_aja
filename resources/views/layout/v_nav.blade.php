@@ -13,19 +13,19 @@
           </p>
         </a>
         <li class="nav-item">
-          <a href="/Laundry" class="nav-link">
+          <a href="/Transaksi" class="nav-link">
             <i class="fas fa-book nav-icon"></i>
             <p>Transaksi</p>
           </a>
         </li>
         <li class="nav-item">
-          <a href="/Laundry" class="nav-link">
+          <a href="/Layanan" class="nav-link">
             <i class="fas fa-book nav-icon"></i>
             <p>Layanan</p>
           </a>
         </li>
           
-        <li class="nav-header">Data </li>
+        <li class="nav-header">Data</li>
       <li class="nav-item">
         <a href="/Karyawan" class="nav-link">
           <i class="fas fa-user nav-icon"></i>

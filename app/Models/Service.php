@@ -16,4 +16,11 @@ class Service extends Model
         'price',
         'duration',
     ];
+    
+    protected $guarded=[];
+
+    public function transaction()
+    {
+        return $this->hasMany(Transaction:: class, 'id_service');
+    }
 }

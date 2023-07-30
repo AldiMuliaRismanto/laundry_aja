@@ -18,11 +18,6 @@ class CustomerController extends Controller
         return view ('admin.customer.v_customer', compact('datacustomer'));
     }
 
-    public function datacustomer()
-    {
-        return view ('admin.customer.v_customer');
-    }
-
     public function tambahcustomer()
     {
         return view('admin.customer.v_tambahcustomer');

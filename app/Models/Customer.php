@@ -18,5 +18,12 @@ class Customer extends Model
         'telephone',
     ];
 
+    protected $guarded=[];
+
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class, 'id_customer');
+    }
+
     
 }
